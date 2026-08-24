@@ -56,7 +56,7 @@ const ANALYSIS_STEPS = [
   "Isolation du signal félin…",
   "Analyse spectrale des harmoniques de ronronnement…",
   "Comparaison avec 2,4 M de miaulements (dataset MeowCorpus™)…",
-  "Décodage sémantique par le réseau neuronal MiaouNet™…",
+  "Décodage sémantique par le réseau neuronal Claw'd 4.5™…",
   "Calibration selon la race sélectionnée…",
   "Finalisation de la traduction…",
 ];
