@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MiaouTranslator — Comprenez enfin votre chat</title>
+  <meta name="description" content="Le premier traducteur félin propulsé par l'IA MiaouNet™. Précision de 99,9 % certifiée par aucun organisme.">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🐱</text></svg>">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header class="header">
+    <div class="logo">🐱</div>
+    <h1>Miaou<span>Translator</span></h1>
+    <p class="baseline">Enfin comprenez votre chat. Propulsé par l'IA MiaouNet™ v4.2</p>
+    <div class="badges">
+      <span class="badge">✨ 99,9 % de précision*</span>
+      <span class="badge">🧠 Deep Meowing</span>
+      <span class="badge">🏆 Élu inutile de l'année</span>
+    </div>
+  </header>
+
+  <main class="main">
+
+    <section class="card">
+      <label class="breed-label" for="breed">Race de votre chat <small>(calibration du modèle)</small></label>
+      <select id="breed" class="breed-select">
+        <option>Chat de gouttière</option>
+        <option>Siamois</option>
+        <option>Maine Coon</option>
+        <option>Persan</option>
+        <option>Sphynx</option>
+        <option>Bengal</option>
+        <option>Chartreux</option>
+        <option>Ragdoll</option>
+        <option>British Shorthair</option>
+        <option>Chat du voisin</option>
+      </select>
+
+      <div class="mic-zone">
+        <button id="micBtn" class="mic-btn" aria-label="Écouter le chat">
+          <span class="mic-icon">🎙️</span>
+        </button>
+        <p id="micHint" class="mic-hint">Approchez le micro de votre chat et appuyez pour traduire</p>
+      </div>
+
+      <canvas id="waveform" class="waveform" width="600" height="120" hidden></canvas>
+
+      <div id="analysis" class="analysis" hidden>
+        <p id="analysisStep" class="analysis-step">Initialisation de MiaouNet™…</p>
+        <div class="progress"><div id="progressBar" class="progress-bar"></div></div>
+      </div>
+
+      <div id="result" class="result" hidden>
+        <p class="result-label">Votre chat a dit :</p>
+        <p id="translation" class="translation">…</p>
+        <p class="confidence">Confiance du modèle : <strong id="confidence">99,2 %</strong> · <span id="resultBreed">Chat de gouttière</span></p>
+        <div class="result-actions">
+          <button id="speakBtn" class="btn-secondary">🔊 Réécouter</button>
+          <button id="againBtn" class="btn-secondary">🎙️ Traduire encore</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="pro-banner">
+      <div>
+        <h2>😾 Votre chat dit-il autre chose ?</h2>
+        <p>Débloquez la traduction avancée avec <strong>MiaouTranslator Pro</strong></p>
+      </div>
+      <button id="proBtn" class="btn-pro">Passer à Pro ✨</button>
+    </section>
+
+  </main>
+
+  <div id="proModal" class="modal-overlay" hidden>
+    <div class="modal" role="dialog" aria-modal="true" aria-labelledby="proTitle">
+      <button id="proClose" class="modal-close" aria-label="Fermer">✕</button>
+      <h2 id="proTitle">MiaouTranslator <span class="pro-tag">PRO</span></h2>
+      <p class="pro-price">49,99 € <small>/ miaou</small></p>
+      <ul class="pro-features">
+        <li>✅ Traduit aussi <em>« j'ai encore faim »</em></li>
+        <li>✅ Mode multilingue : la faim en 47 langues</li>
+        <li>✅ Détection du regard de jugement (bêta)</li>
+        <li>✅ Support 7j/7, sauf quand le chat dort (donc jamais)</li>
+        <li>✅ Traduction inverse humain → chat (le chat ignore quand même)</li>
+      </ul>
+      <button id="proPay" class="btn-pro btn-pro-wide">Payer 49,99 €</button>
+      <p id="proError" class="pro-error" hidden>❌ Paiement refusé : votre chat a déjà dépensé votre argent en croquettes.</p>
+    </div>
+  </div>
+
+  <footer class="footer">
+    <p>*Précision mesurée sur un échantillon d'un seul chat, qui avait faim.</p>
+    <p>© 2026 MiaouTranslator · Aucun chat n'a été compris durant le développement.</p>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
