@@ -21,6 +21,35 @@ const TRANSLATIONS = [
   "Je t'aime. Surtout quand tu ouvres une boîte de pâtée.",
   "Mange-t-on bientôt ? C'était une question rhétorique. On mange.",
   "Alerte niveau 3 : la gamelle présente une transparence anormale.",
+  "Le vide de ma gamelle reflète le vide de mon âme. Croquettes.",
+  "Selon mes calculs, il reste 0 croquette. Selon mon estomac aussi.",
+  "Ceci est mon 47e rappel courtois. Le prochain sera griffé.",
+  "Je ne suis pas gros, je suis en prévision de famine. Nourris-moi.",
+  "Tu manges. Je regarde. Tu vois le problème ?",
+  "La gamelle du voisin a l'air mieux remplie. Ne m'oblige pas à déménager.",
+  "J'ai renversé ton verre pour attirer l'attention sur ma faim. C'était un avertissement.",
+  "Il est 4h du matin, l'heure idéale pour parler croquettes.",
+  "Mon vétérinaire dit que je mange trop. Mon vétérinaire n'est pas invité.",
+  "Je jeûne depuis 8 minutes. C'est de la maltraitance.",
+  "Miaou. Traduction : j'ai faim. Tu avais vraiment besoin d'une appli ?",
+  "J'exige des croquettes et un dédommagement pour l'attente.",
+  "Le thon du placard m'appelle. Je t'autorise à répondre.",
+  "Remplis la gamelle et je promets de ne pas vomir sur le tapis. Promesse non contractuelle.",
+  "As-tu remarqué comme je suis mignon aujourd'hui ? C'était pour la nourriture.",
+  "Niveau de croquettes : critique. Niveau de patience : pire.",
+  "Je viens de faire 3 pas. J'ai mérité une collation.",
+  "L'humain d'avant me nourrissait mieux. Je dis ça, je dis rien.",
+  "Ce n'est pas de la faim, c'est de la gourmandise stratégique.",
+  "Sers le repas maintenant et je n'annulerai pas le câlin de 18h.",
+  "Mon ronronnement était en fait un bruit de ventre. Erreur de traduction. J'ai faim.",
+  "Flash info : un chat magnifique meurt de faim dans un salon. Les secours, c'est toi.",
+  "Je te réveille à 5h par amour. Et pour les croquettes. Surtout les croquettes.",
+  "Deux options : me nourrir maintenant, ou me nourrir tout de suite.",
+  "J'ai neuf vies mais une seule gamelle. Cherche l'erreur.",
+  "Ta réunion peut attendre. Mon estomac, non.",
+  "Je surveille ce laser rouge depuis 3 heures. Ça creuse.",
+  "Ce miaulement contenait trois syllabes : cro-quet-tes.",
+  "La nuit, tous les chats sont gris. Et affamés. Enfin surtout moi.",
 ];
 
 const ANALYSIS_STEPS = [
@@ -204,9 +233,12 @@ function speak(text) {
   speechSynthesis.speak(utterance);
 }
 
-// Certains navigateurs chargent les voix de façon asynchrone.
+// Certains navigateurs chargent les voix de façon asynchrone,
+// et d'autres (Samsung Internet…) n'ont pas de synthèse vocale du tout.
 if ("speechSynthesis" in window) {
   speechSynthesis.getVoices();
+} else {
+  speakBtn.hidden = true;
 }
 
 proBtn.addEventListener("click", () => {
